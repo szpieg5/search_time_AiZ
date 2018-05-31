@@ -1,5 +1,5 @@
 /*****************************/
-// 31.05.2018
+// start 31.05.2018
 // L.SZ
 // czas wyszukiwania, rysowanie wykresu
 // AiZ
@@ -22,13 +22,17 @@ int count_II_III_points(point tab[], int max_n);
 int main()
 {   
     int max = 8, i = 0;
+    float search_time[7];
     
     // zapisanie danych do struktury podczas jej inicjacji aby mozna bylo przetestowac program
 	// taki szybki sposob zapisu danych do struktury tablicy mozna zastosowac tylko podczas inicjacji struktury
     point points_tab[max] =
         {
-    		{1,1},{1,2},{1,3},{-1.5,-4.5},{2,0},{-9.8,1.5},{-8,1},{5,1}
+    		{1,1},{1,2},{1,3},{1.5,4.5},{2,0},{9.8,1.5},{8,1},{5,1}
 	    };
+
+    search_time[0] = min_x(points_tab, max);
+
 
     // wykres
     cout << "t[ms]" << endl;
@@ -36,12 +40,12 @@ int main()
     for (i=9; i>0; i--) cout << i << "|" << endl;
     cout << i << "|";
     for (i=1; i<50; i++) cout << "_";
-    cout << endl << "   10     100     1k     10k     100k     1M     7";
+    cout << endl << "   10     100     1k     10k     100k     1M     10M";
     
     cout << endl << endl;
-    cout << "czas1: " << min_x(points_tab, max) << endl; 
-    cout << "czas2: " << min_x(points_tab, max) << endl; 
-    cout << "czas3: " << min_x(points_tab, max) << endl; 
+    cout << "czas1: " << search_time[0] << endl; 
+    cout << "czas2: " << search_time[1] << endl; 
+    cout << "czas3: " << search_time[2] << endl; 
     return 0;
 }
 
